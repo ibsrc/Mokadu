@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras Hamburguesas</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid contenedor-nav">
+            <a class="navbar-brand" href="/"><img src="./img/logo.png" alt="logo" title="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./sobrenosotros.html">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nuertrashamburguesas.html">Nuestras Hamburguesas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            
+            </div>
+        </div>
+    </nav>
+    <header class="header-carta">
+        <h1 class="portadacarta">NUESTRAS<br>HAMBURGUESAS</h1>
+        <img class="img-carta" src="./img/Hero Nuestras Hamburg..png" alt="nuestras hamburguesas" title="nuestras hamburguesas" width="100%">
+    </header>
+
+    <section class="hamburguesas container d-flex justify-content-center">
+
+        <article class="row cartas justify-content-center">
+                <article class="col12 text-center ">
+                    <h2 class="titulo3">CARTA</h2>
+                    <h3 class="subt3">Lavarse bien las manos antes de comer, te vas a chupar los dedos.</h3>
+                </article>
+
+            <!--CARD INGREDIENTES-->
+            <div class="card col-md-6 col-12 fichahamburguesa" style="width: 18rem;">
+                <img src="./img/etxeko.png" class="card-img-top1" alt="etxeko" title="etxeko" width="100%">
+                <div class="card-body">
+                    <h3 class="card-title">ETXEKO</h3>
+                    <p class="card-text">
+                    Hamburguesa de vaca 120 gr. 1ª A<br>Cebolla caramelizada<br>Pepinillo<br>Queso
+                    </p>
+                    <div class="card-price">
+                        <span><b>10,99</b></span>
+                        <span><b>€</b></span>
+                    </div>
+                    <!-- input producto 1 -->
+                     <div class="d-flex align-items-center gap-3">
+                        <label for="item01"><b>Añadir a la cesta</b></label>
+                        <input id="item01" type="checkbox" data-nombre="Hamburguesa ETXEKO" data-precio="10.99" data-id="producto01" class="producto">
+                    </div>
+                </div>
+            </div>
+
+            <!--CARD INGREDIENTES-->
+            <div class="card col-md-6 col-12 fichahamburguesa" style="width: 18rem;">
+                <img src="./img/goxua.png" class="card-img-top2" alt="goxua" title="goxua" width="100%">
+                <div class="card-body">
+                    <h3 class="card-title">GOXUA</h3>
+                    <p class="card-text">Hamburguesa de vaca 120 gr. 1ª A<br>Cebolla caramelizada<br>Huevo frito<br>Queso fundido</p>
+                     <div class="card-price">
+                        <span><b>13,99</b></span>
+                        <span><b>€</b></span>
+                    </div>
+                    <!-- input producto 2 -->
+                    <div class="d-flex align-items-center gap-3">
+                        <label class="anadir" for="item02"><b>Añadir a la cesta</b></label>
+                        <input id="item02" type="checkbox" data-nombre="Hamburguesa GOXUA" data-precio="12.99" data-id="producto02" class="producto">
+                    </div>
+                </div>
+            </div>
+
+            <!--CARD INGREDIENTES-->
+            <div class="card col-md-6 col-12 fichahamburguesa" style="width: 18rem;">
+                <img src="./img/baserri.png" class="card-img-top3" alt="baserri" title="baserri" width="100%">
+                <div class="card-body">
+                    <h3 class="card-title">BASERRI</h3>
+                    <p class="card-text">Hamburguesa de txuleta 150gr. de 1ª A<br>Cebolla frita<br>BaconQueso fundido<br>Mermelada de bacon</p>
+                     <div class="card-price">
+                        <span><b>14,99</b></span>
+                        <span><b>€</b></span>
+                    </div>
+                    <!-- input producto 3 -->
+                     <div class="d-flex align-items-center gap-3">
+                        <label for="item03"><b>Añadir a la cesta</b></label>
+                        <input id="item03" type="checkbox" data-nombre="Hamburguesa BASERRI" data-precio="14.99" data-id="producto03" class="producto">
+                    </div>
+                </div>
+            </div>
+
+            <!--CARD INGREDIENTES-->            
+            <div class="card col-md-6 col-12 fichahamburguesa" style="width: 18rem;">
+                <img src="./img/txapeldun.png" class="card-img-top4" alt="txapeldun" title="txapeldun" width="100%">
+                <div class="card-body">
+                    <h3 class="card-title">TXAPELDUN</h3>
+                    <p class="card-text">Hamburguesa de txuleta 150gr. 1ª A<br>Cebolla fresca<br>Tomate triturado<br>Crema de roquefort<br>Mermelada de bacon</p>
+                     <div class="card-price">
+                        <span><b>16,99</b></span>
+                        <span><b>€</b></span>
+                    </div>
+                    <!-- input producto 4 -->
+                     <div class="d-flex align-items-center gap-3">
+                        <label for="item04"><b>Añadir a la cesta</b></label>
+                        <input id="item04" type="checkbox" data-nombre="Hamburguesa TXAPELDUN" data-precio="16.99" data-id="producto04" class="producto">
+                    </div>
+            </div>
+
+        </article>
+
+    </section>
+
+    <section class="sectabla container d-flex justify-content-center">
+        <article>
+            <h2>RESUMEN DEL PEDIDO</h2>
+            
+            <table id="tablaPedido">
+                <thead>
+                    <tr>
+                        <th>Nº</th>
+                        <th>Producto</th>
+                        <th>Precio/Un.</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tableItems">
+                    <!-- Aqui metere las tr (filas) de forma dinamica a traves de JS según el usuario clicka o no en los productos -->
+                </tbody>
+            </table>
+            <div id="totalPedido">
+                <span><b>TOTAL:</b></span>
+                <span id="total" data-total="0"><b>0 €</b></span>
+            </div>
+            <div class="boton" id="botonPedido">Hacer pedido</div>
+
+        </article>
+    </section>
+
+    <div id="modal">
+        <article class="resume" id="contenedorModal">
+            <!--<span id="close">X</span>-->
+            <img id="close" src="./img/close.svg" alt="closemodal">
+            <h3>Confirma tu pedido</h3>
+            <!-- Aquí irá la tabla clonada de forma dinamica desde JS -->
+            <!-- Aquí irá el div del total clonado de forma dinámica desde JS -->
+            <div class="boton" id="botonPagar">Hacer pedido</div>
+        </article>
+    </div>
+
+
+
+    <footer>
+        <div class="logofooter">
+            <img class="logo" src="./img/logo.png" alt="logo" title="logo" width="100%">
+        </div>
+
+        <div class="navfooter">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./sobrenosotros.html">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./nuertrashamburguesas.html">Nuestras Hamburguesas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contacto.html">Contacto</a>
+                </li>
+                <!--TODO: completar los href-->
+            </ul>
+        </div>
+
+        <div class="redes">
+            <img class="fb" src="./img/facebook.png" alt="facebook" title="facebook" width="100%">
+            <img class="ig" src="./img/instagram.png" alt="instagram" title="instagram" width="100%">
+            <img class="yt" src="./img/youtube.png" alt="youtube" title="youtube" width="100%">
+
+        </div>
+    </footer>
+
+
+
+    <script>
+        // JS una vez se cargue el DOM
+
+        // ********************************************
+        // GESTIÓN DE AÑADIR O QUITAR LÍNEAS DEL PEDIDO Y SUS SUMATORIOS
+        // ********************************************
+
+        // Recoger el HTML en constante
+        // Recoger todos los INPUT a través de la clase productos
+        const productos = document.getElementsByClassName("producto")
+        const tableItems = document.getElementById("tableItems")
+        const total = document.getElementById("total") //Span donde totalizo la compra
+
+        // Recorrer en un FOR OF todos los productos, en cada iteración trabajaré con cada producto
+        for(const producto of productos){
+            producto.addEventListener("change", function(){
+                
+                // Recojo en constantes los datas de ese input que ha sufrido evento change (nombre, id y precio)
+                const id = producto.getAttribute("data-id")
+                const nombre = producto.getAttribute("data-nombre")
+
+                let precio = producto.getAttribute("data-precio") //Le pongo let ya que luego opero con dicha variable "10,99"
+                let cantidad = "2" //Vendria dinamico desde el input del HTML
+                let totalLinea = 0 //La usaremos para multiplicar cantidad por precio unitario
+                let totalCompraNuevo = 0 // Aqui calcularemos el nuevo total de la compra
+                let totalCompra = total.getAttribute("data-total") // Aqui tendremos el total como texto y en un data
+                totalCompra = parseFloat(totalCompra) //Paso el valor a un numero decimal para poder operar
+
+                // Gestion del total por linea
+                precio = parseFloat(precio)
+                cantidad = parseInt(cantidad)
+                totalLinea = precio * cantidad
+
+                // Condición para actuar en función de si el input en cuestión está o no checked
+                if(producto.checked){
+                    // Si ese input está checked añado a la tabla un nuevo TR (fila) con los TD y los datos de ese producto
+                    // console.log(`El input ${id} lo han checkeado`)
+
+                    // Crear elementos HTML desde JS, para luego meterles atributos y valores y después inyectarlos en el HTML
+                    const tr = document.createElement("tr")
+                    const td1 = document.createElement("td")
+                    const td2 = document.createElement("td")
+                    const td3 = document.createElement("td")
+                    const td4 = document.createElement("td")
+                    const td5 = document.createElement("td")
+                    // Asigno valores
+                    tr.setAttribute("id", id)
+                    td1.innerText = "#"
+                    td2.innerText = nombre
+                    td3.innerText = precio +" €"
+                    td4.innerText = cantidad
+                    td5.innerText = totalLinea+" €"
+                    //Anidamiento appendChild
+                    tr.appendChild(td1)
+                    tr.appendChild(td2)
+                    tr.appendChild(td3)
+                    tr.appendChild(td4)
+                    tr.appendChild(td5)
+                    tableItems.appendChild(tr)
+
+                    // Gestión del total de la compra (sumar)
+                    totalCompraNuevo = (totalCompra + totalLinea).toFixed(2)
+                    total.setAttribute("data-total", totalCompraNuevo)
+                    total.innerText = totalCompraNuevo + " €" 
+                }else{
+                    // Si ese input NO está checked, busco el TR que tenga el mismo ID de este data-id del input, y lo quito
+                    // console.log(`El input ${id} lo han descheckeado`)
+                    document.getElementById(id).remove()
+
+                    // Gestión del total de la compra (restar)
+                    totalCompraNuevo = (totalCompra - totalLinea).toFixed(2)
+                    total.setAttribute("data-total", totalCompraNuevo)
+                    total.innerText = totalCompraNuevo + " €"
+
+                }
+            })
+        }         
+
+
+
+
+
+        // **************************************************************
+        // GESTIÓN PARA ABRIR O CERRAR EL MODAL Y CLONAR TABLA DENTRO DEL
+        // **************************************************************
+        const botonPedido = document.getElementById("botonPedido")
+        const modal = document.getElementById("modal")
+        const cerrarModal = document.getElementById("close")
+
+        const contenedorModal = document.getElementById("contenedorModal")
+        const tablaPedido = document.getElementById("tablaPedido")
+        const totalPedido = document.getElementById("totalPedido")
+        
+
+        botonPedido.addEventListener("click", function(){
+            //Comprobamos si ya hay tabla, y si la hay la quito                
+            const tablaPedidoClonada = tablaPedido.cloneNode(true)
+            const totalPedidoClonada = totalPedido.cloneNode(true)          
+            
+            
+            const tablaAnterior = contenedorModal.querySelector("table")
+            const totalPedidoAnterior = contenedorModal.querySelector("#totalPedido")
+            if (tablaAnterior && totalPedidoAnterior){
+                tablaAnterior.remove()
+                totalPedidoAnterior.remove()
+            }
+
+
+            contenedorModal.insertBefore(tablaPedidoClonada, contenedorModal.children[2])
+            contenedorModal.insertBefore(totalPedidoClonada, contenedorModal.children[3])
+
+            modal.style.display="flex"
+        })
+
+        cerrarModal.addEventListener("click", function(){
+            modal.style.display="none"
+        })
+
+    </script>
+
+    
+</body>
+</html>

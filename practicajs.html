@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .boton{
+            width: fit-content;
+            padding: 0.5rem 2rem;
+            background-color: cornflowerblue;
+            color: white;
+            font-family: arial;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border: 2px;
+            border-color: white;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover{
+                background-color: white;
+                color: cornflowerblue;
+            }
+            &:active{
+                transform: scale(0.9);
+            }
+        }
+
+        .destacar{
+            width: fit-content;
+            border-bottom: 2px solid black;
+        }
+
+        #modal{
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128, 128, 128, 0.212);
+            backdrop-filter: blur(10px);
+            display: none; /*esto se cambiará desde JS */
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mih1">Hola mundo</h1>
+    <p id="presentacion">Texto inicial</p>
+
+    <ul>
+        <li id="nombre"></li>
+        <li id="apellido"></li>
+        <li id="nombrecompleto"></li>
+    </ul>
+
+    <div id="boton1" class="boton">adfadaflkjhkljh ouiytiuyti</div>
+
+    <div id="boton2" class="boton">Revertir</div>
+
+    <div id="boton3" class="boton">Cambio de color</div>
+
+    <div id="boton4" class="boton">Añadir o quitar clase</div>
+    <!-- Ejercicio de cambio de un checkbox-->
+
+    <label for="item01">Producto 1</label>
+    <input type="checkbox" name="" id="item01" data-nombre="hamburguesa con queso" class="item">
+
+    <label for="item02">Producto 2</label>
+    <input type="checkbox" name="" id="item02" data-nombre="hamburguesa con tomate" class="item">
+
+    <!-- Ejercicio de cambio de checkbox con class e iterador-->
+    <label for="prod01">Producto 1</label>
+    <input type="checkbox" name="" id="prod01" data-nombre="Hamburguesa con bacon" class="item">
+
+    <label for="prod02">Producto 2</label>
+    <input type="checkbox" name="" id="prod02" data-nombre="Pepito de carne con queso" class="item">
+
+    <table>
+        <tr>
+            <th>Producto</th>
+        </tr>
+    </table>
+
+    <table id="tablaResumen">
+        <tr>
+            <th>Producto</th>
+        </tr>
+    </table>
+
+    <table>
+
+        <tr>
+            <th>Productos</th>
+        </tr>
+        <tr>
+            <td id="registro01"></td>
+        </tr>
+        <tr>
+            <td id="registro02"></td>
+        </tr>
+    </table>
+
+    <!-- Ejercicio de cambio de checkbox con class e iterador y manejo de child desde js-->
+     <label for="i01">Producto 1</label>
+     <input type="checkbox" name="" id="i01" data-nombre="Hamburguesa con bacon" class="producto" data-id="p01">
+
+     <label for="i02">Producto 2</label>
+     <input type="checkbox" name="" id="i02" data-nombre="Pepito de carne con queso" class="producto" data-id="p02">
+
+     <label for="i03">Producto 3</label>
+     <input type="checkbox" name="" id="i03" data-nombre="Pizza" class="producto" data-id="p03">
+
+
+     <!-- EJERCICIO CON TODO EL QUE IMPORTA -->
+
+
+    <div>
+        <label for="item01">Añadir a la cesta</label>
+        <!-- input producto 1 -->
+        <input id="item01" type="checkbox" data-nombre="Hamburguesa con bacon" data-precio="12,99" data-id="producto01" class="producto">
+
+        <label for="item02">Añadir a la cesta</label>
+        <!-- input producto 2 -->
+        <input id="item02" type="checkbox" data-nombre="Pepito de carne con queso" data-precio="14,99" data-id="producto02" class="producto">
+
+        <label for="item03">Añadir a la cesta</label>
+        <!-- input producto 3 -->
+        <input id="item03" type="checkbox" data-nombre="Pizza" data-precio="14,99" data-id="producto03" class="producto">
+    </div>
+
+    <article class="resumen">
+        <h3>Tu pedido</h3>
+        <table id="tablaPedido">
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>Producto</th>
+                    <th>Precio/u</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="tableItems">
+                <!-- Aqui metere las tr (filas) de forma dinamica a traves de JS según el usuario clika o no en los productos -->
+            </tbody>
+        </table>
+        <div>
+            <span>TOTAL</span>
+            <span id="total" data-total="0">0 €</span>
+        </div>
+        <div class="boton" id="botonPedido">Hacer pedido</div>
+    </article>
+
+    <div id="modal">
+        <article class="resume" id="contenedorModal">
+            <span id="close">X</span>
+            <h3>Confirma tu pedido</h3>
+            <!-- Aquí irá la tabla clonada de forma dinamica desde JS -->
+             <div>
+                <span>TOTAL:</span>
+                <span id="total" data-total="0"></span>
+             </div>
+             <div class="boton" id="botonPagar">Hacer pedido</div>
+        </article>
+    </div>
+    
+        <!-- A partir de aquí JAVASCRIPT -->
+
+    <script>
+
+        /* // Constantes y cambiar texto o html
+        const mih1 = document.getElementById("mih1")
+        const presentacion = document.getElementById("presentacion")
+
+        mih1.innerHTML = "<span>Adios mundo</span>"
+        presentacion.innerText =" este texto lo meto desde js con innerText"
+
+
+        // Ejercicio 2, constantes, variables, insertar texto y concatenar
+        const nombre = document.getElementById("nombre")
+        const apellido = document.getElementById("apellido")
+        const nombrecompleto = document.getElementById("nombrecompleto")
+
+        let nom = "Iñaki"
+        
+        nombre.innerText = nom
+
+        let ape = "Basurco"
+
+        apellido.innerText = ape
+
+        let nomcom = "Iñaki Basurco"
+
+        nombrecompleto.innerText = nom + " " + ape
+        nombrecompleto.innerHTML = ` asdfadsf ${nom} dgh ${ape} kjhgfjhgfjh `
+        
+
+        // Ejercicio 3 - eventos de escucha
+        const boton1 = document.getElementById("boton1")
+
+        boton1.addEventListener("click", function(){
+            mih1.innerText="He cambiado el H1 a traves del botón"
+        })
+
+        const boton2 = document.getElementById("boton2")
+        const valorInicialdelh1 = mih1.innerText
+
+        boton2.addEventListener("click", function(){
+            mih1.innerText=valorInicialdelh1
+        })
+
+        const boton3 = document.getElementById("boton3")
+        const cambiocolor = mih1.innerText
+
+        boton3.addEventListener("click", function(){
+            mih1.style.color="red"
+        })
+
+        const boton4 = document.querySelector("#boton4")
+       
+
+        boton4.addEventListener("click", function(){
+            mih1.classList.toggle("destacar")
+        })
+
+        const item01 = document.getElementById("item01")
+        const item02 = document.getElementById("item02")
+        const registr01 = document.getElementById("registro01")
+        const registr02 = document.getElementById("registro02")
+
+        item01.addEventListener("change", function(){
+            if(item01.checked){
+                registro01.innerText=item01.getAttribute("data-nombre")
+            }else{
+                registro01.innerText=""
+            }
+            })
+        
+        item02.addEventListener("change", function(){
+            if(item02.checked){
+                registro02.innerText=item02.getAttribute("data-nombre")
+            }else{
+                registro02.innerText=""
+            }
+            }) 
+
+        const items = document.getElementById("item")
+            
+        for(const item of items){
+            item.addEventListener("change"), function(){
+                console.log(item)
+            }
+        }
+        // Ejercicio de cambio de checkbox con class e iterador
+        const items = document.getElementsByClassName("item")
+
+        for(const item of items){
+            item.addEventListener("change", function(){
+                console.log(item)
+            })
+        }
+        
+        // Recojo en constantes
+        const productos = document.getElementsByClassName("producto")
+        const tablaResumen = document.getElementById("tablaResumen")
+
+        for(const producto of productos){
+            producto.addEventListener("change", function(){
+
+                const id = producto.getAttribute("data-id")
+
+                if(producto.checked){
+                    const tr = document.createElement("tr")
+                    tr.setAttribute("id", producto.getAttribute("data-id"))
+
+                    const td = document.createElement("td")
+                    td.innerText = producto.getAttribute("data-nombre")
+
+                    tr.appendChild(td)
+                    tablaResumen.appendChild(tr)
+
+                }else{
+                    document.getElementById(id)?.remove()
+                }
+            })
+        } */
+
+
+        // JS una vez se cargue el DOM
+
+        // ********************************************
+        // GESTIÓN DE AÑADIR O QUITAR LÍNEAS DEL PEDIDO Y SUS SUMATORIOS
+        // ********************************************
+
+        // Recoger el HTML en constante
+        // Recoger todos los INPUT a través de la clase productos
+        const productos = document.getElementsByClassName("producto")
+        const tableItems = document.getElementById("tableItems")
+        const total = document.getElementById("total") //Span donde totalizo la compra
+
+        // Recorrer en un FOR OF todos los productos, en cada iteración trabajaré con cada producto
+        for(const producto of productos){
+            producto.addEventListener("change", function(){
+                // console.log(producto)
+
+                // Recojo en constantes los datas de ese input que ha sufrido evento change (nombre, id y precio)
+                const id = producto.getAttribute("data-id")
+                const nombre = producto.getAttribute("data-nombre")
+
+                let precio = producto.getAttribute("data-precio") //Le pongo let ya que luego opero con dicha variable "10,99"
+                let cantidad = "2" //Vendria dinamico desde el input del HTML
+                let totalLinea = 0 //La usaremos para multiplicar cantidad por precio unitario
+                let totalCompraNuevo = 0 // Aqui calcularemos el nuevo total de la compra
+                let totalCompra = total.getAttribute("data-total") // Aqui tendremos el total como texto y en un data
+                totalCompra = parseFloat(totalCompra) //Paso el valor a un numero decimal para poder operar
+
+                // Gestion del total por linea
+                precio = parseFloat(precio)
+                cantidad = parseInt(cantidad)
+                totalLinea = precio * cantidad
+
+                // Condición para actuar en función de si el input en cuestión está o no checked
+                if(producto.checked){
+                    // Si ese input está checked añado a la tabla un nuevo TR (fila) con los TD y los datos de ese producto
+                    // console.log(`El input ${id} lo han checkeado`)
+
+                    // Crear elementos HTML desde JS, para luego meterles atributos y valores y después inyectarlos en el HTML
+                    const tr = document.createElement("tr")
+                    const td1 = document.createElement("td")
+                    const td2 = document.createElement("td")
+                    const td3 = document.createElement("td")
+                    const td4 = document.createElement("td")
+                    const td5 = document.createElement("td")
+                    // Asigno valores
+                    tr.setAttribute("id", id)
+                    td1.innerText = "#"
+                    td2.innerText = nombre
+                    td3.innerText = precio +" €"
+                    td4.innerText = cantidad
+                    td5.innerText = totalLinea+" €"
+                    //Anidamiento appendChild
+                    tr.appendChild(td1)
+                    tr.appendChild(td2)
+                    tr.appendChild(td3)
+                    tr.appendChild(td4)
+                    tr.appendChild(td5)
+                    tableItems.appendChild(tr)
+
+                    // Gestión del total de la compra (sumar)
+                    totalCompraNuevo = totalCompra + totalLinea
+                    total.setAttribute("data-total", totalCompraNuevo)
+                    total.innerText = totalCompraNuevo + " €" 
+                }else{
+                    // Si ese input NO está checked, busco el TR que tenga el mismo ID de este data-id del input, y lo quito
+                    // console.log(`El input ${id} lo han descheckeado`)
+                    document.getElementById(id).remove()
+
+                    // Gestión del total de la compra (restar)
+                    totalCompraNuevo = totalCompra - totalLinea
+                    total.setAttribute("data-total", totalCompraNuevo)
+                    total.innerText = totalCompraNuevo + " €"
+
+                }
+            })
+        }         
+
+
+
+
+
+        // ********************************************
+        // GESTIÓN PARA ABRIR O CERRAR EL MODAL Y CLONAR TABLA DENTRO DEL
+        // ********************************************
+        const botonPedido = document.getElementById("botonPedido")
+        const modal = document.getElementById("modal")
+        const cerrarModal = document.getElementById("close")
+
+        const contenedorModal = document.getElementById("contenedorModal")
+        const tablaPedido = document.getElementById("tablaPedido")
+        
+
+        botonPedido.addEventListener("click", function(){
+            //Comprobamos si ya hay tabla, y si la hay la quito
+            
+            const tablaPedidoClonada = tablaPedido.cloneNode(true)
+            const tablaAnterior = contenedorModal.querySelector("table")
+
+            if (tablaAnterior){
+                tablaAnterior.remove()
+            }
+            contenedorModal.insertBefore(tablaPedidoClonada, contenedorModal.children[2])
+            modal.style.display="flex"
+        })
+
+        cerrarModal.addEventListener("click", function(){
+            modal.style.display="none"
+        })
+
+        
+
+
+    </script>
+</body>
+</html>
