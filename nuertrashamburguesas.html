@@ -208,6 +208,27 @@
         const tableItems = document.getElementById("tableItems")
         const total = document.getElementById("total") //Span donde totalizo la compra
 
+        //Función para rellenar el contador de filas de la tabla
+        function contarFilas(){
+            //Recojo todas las filas sólo cuando llamo a esta función
+            const filas = document.querySelectorAll(".fila")
+            let contador = 0
+        
+            for(const fila of filas){
+                //Recojo todos los td que tiene esa fila en una constante
+                const tds = fila.querySelectorAll('td')
+                let primerTd = tds[0]
+
+                console.log(primerTd)
+                if(primerTd){
+                    contador = contador + 1
+                    console.log(contador)
+                    primerTd.innerText = contador
+                }
+            }
+        }
+
+
         // Recorrer en un FOR OF todos los productos, en cada iteración trabajaré con cada producto
         for(const producto of productos){
             producto.addEventListener("change", function(){
@@ -242,11 +263,12 @@
                     const td5 = document.createElement("td")
                     // Asigno valores
                     tr.setAttribute("id", id)
+                    tr.setAttribute("class", "fila")
                     td1.innerText = "#"
                     td2.innerText = nombre
                     td3.innerText = precio +" €"
                     td4.innerText = cantidad
-                    td5.innerText = totalLinea+" €"
+                    td5.innerText = totalLinea +" €"
                     //Anidamiento appendChild
                     tr.appendChild(td1)
                     tr.appendChild(td2)
@@ -270,6 +292,9 @@
                     total.innerText = totalCompraNuevo + " €"
 
                 }
+
+                contarFilas()
+
             })
         }         
 
